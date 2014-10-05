@@ -1,25 +1,37 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Hello by stefangeorge</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    
-    <div id="container"></div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hello by stefangeorge</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="stylesheets/styles.css">
+		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+ 	<style>
+			body {
+				color: #808080;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				background-color: #ffffff;
+				margin: 0px;
+				overflow: hidden;
+			}
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	
+	
+	<body>
+		<div id="container"></div>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="javascripts/Bird.js"></script>
-		<script src="javascripts/stats.min.js"></script>
-    
-  	 	<script>
+		<script src="obj/Bird.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+		
+		<script>
 		// Based on http://www.openprocessing.org/visuals/?visualID=6910
 		var Boid = function() {
 			var vector = new THREE.Vector3(),
@@ -92,12 +104,12 @@
 					_acceleration.set( 0, 0, 0 );
 				}
 				this.checkBounds = function () {
-					if ( this.position.x >   _width ) this.position.x = - _width;
-					if ( this.position.x < - _width ) this.position.x =   _width;
-					if ( this.position.y >   _height ) this.position.y = - _height;
-					if ( this.position.y < - _height ) this.position.y =  _height;
-					if ( this.position.z >  _depth ) this.position.z = - _depth;
-					if ( this.position.z < - _depth ) this.position.z =  _depth;
+					if ( this.position.x > _width ) this.position.x = - _width;
+					if ( this.position.x < - _width ) this.position.x = _width;
+					if ( this.position.y > _height ) this.position.y = - _height;
+					if ( this.position.y < - _height ) this.position.y = _height;
+					if ( this.position.z > _depth ) this.position.z = - _depth;
+					if ( this.position.z < - _depth ) this.position.z = _depth;
 				}
 				//
 				this.avoid = function ( target ) {
@@ -185,15 +197,13 @@
 					return posSum;
 				}
 			}
-	
-	
 		</script>
 		
 		<script>
+		SCREEN_HEIGHT = 100
 			var SCREEN_WIDTH = window.innerWidth,
 			//SCREEN_HEIGHT = window.innerHeight,
-			SCREEN_HEIGHT = 100,
-			SCREEN_WIDTH_HALF = SCREEN_WIDTH  / 2,
+			SCREEN_WIDTH_HALF = SCREEN_WIDTH / 2,
 			SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
 			var camera, scene, renderer,
 			birds, bird;
@@ -201,6 +211,7 @@
 			var stats;
 			init();
 			animate();
+			
 			function init() {
 				camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
 				camera.position.z = 450;
@@ -262,40 +273,43 @@
 					color.r = color.g = color.b = ( 500 - bird.position.z ) / 1000;
 					bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
 					bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
-					bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
+					bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 ) ) % 62.83;
 					bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
 				}
 				renderer.render( scene, camera );
 			}
 		</script>
-  
-    
-    <div class="wrapper">
-      <header>
-        <h1>Hello</h1>
-        <p></p>
-        <p class="view"><a href="https://github.com/stefangeorge/hello">View the Project on GitHub <small>stefangeorge/hello</small></a></p>
+		
+		<div class="wrapper">
+			
+		<header>
+		<h1>Hello</h1>
+		
+		<p></p>
+		<p class="view"><a href="https://github.com/stefangeorge/hello">View the Project on GitHub <small>stefangeorge/hello</small></a></p>
+		</header>
+		
+		<section>
+		<h3><a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Welcome</h3>
 
-      </header>
-      <section>
-        <h3>
-<a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Welcome</h3>
+		<h3>
+		<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+		<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+		<h3>
+		<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/stefangeorge">stefangeorge</a></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+		<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+		
+		</section>
+		
+		<footer>
+		<p>This project is maintained by <a href="https://github.com/stefangeorge">stefangeorge</a></p>
+		</footer>
+		</div>
+		
+		<script src="javascripts/scale.fix.js"></script>
+		
+	</body>
 </html>
