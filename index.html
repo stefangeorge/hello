@@ -204,7 +204,7 @@
 			SCREEN_HEIGHT = window.innerHeight,
 			SCREEN_WIDTH_HALF = SCREEN_WIDTH / 2,
 			SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
-			SCREEN_HEIGHT = 320;
+			//SCREEN_HEIGHT = 320;
 			//SCREEN_WIDTH = 420;
 			var camera, scene, renderer,
 			birds, bird;
@@ -214,7 +214,7 @@
 			animate();
 			
 			function init() {
-				camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+				camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 5000 );
 				camera.position.z = 450;
 				scene = new THREE.Scene();
 				birds = [];
