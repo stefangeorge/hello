@@ -8,11 +8,11 @@
 		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
  	<style>
 			body {
-				color: #808080;
+				color: #000000;
 				font-family:Monospace;
 				font-size:13px;
 				text-align:center;
-				background-color: #ffffff;
+				background-color: #B5E4EF;
 				margin: 0px;
 				overflow: hidden;
 			}
@@ -204,7 +204,7 @@
 			SCREEN_HEIGHT = window.innerHeight,
 			SCREEN_WIDTH_HALF = SCREEN_WIDTH / 2,
 			SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
-			//SCREEN_HEIGHT = 250;
+			SCREEN_HEIGHT = 320;
 			//SCREEN_WIDTH = 420;
 			var camera, scene, renderer,
 			birds, bird;
@@ -234,7 +234,7 @@
 					scene.add( bird );
 				}
 				renderer = new THREE.CanvasRenderer();
-				renderer.setClearColor( 0x55aaff, 0.3);
+				renderer.setClearColor( 0xB5E4EF, 0.3);
 				renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 				//this sets the position of the canvas
 				renderer.domElement.style.position = 'absolute';
